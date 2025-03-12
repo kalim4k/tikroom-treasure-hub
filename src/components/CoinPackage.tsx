@@ -8,9 +8,16 @@ interface CoinPackageProps {
   price: number;
   popular?: boolean;
   delay?: number;
+  imageUrl?: string;
 }
 
-const CoinPackage: React.FC<CoinPackageProps> = ({ amount, price, popular = false, delay = 0 }) => {
+const CoinPackage: React.FC<CoinPackageProps> = ({ 
+  amount, 
+  price, 
+  popular = false, 
+  delay = 0,
+  imageUrl
+}) => {
   const formattedAmount = amount.toLocaleString('fr-FR');
   const formattedPrice = price.toLocaleString('fr-FR');
   
@@ -28,8 +35,18 @@ const CoinPackage: React.FC<CoinPackageProps> = ({ amount, price, popular = fals
         </div>
       )}
       
-      <div className="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-tikroom-50 mx-auto">
-        <Coins className="w-8 h-8 text-tikroom" />
+      <div className="flex items-center justify-center mb-6 mx-auto">
+        {imageUrl ? (
+          <img 
+            src={imageUrl} 
+            alt="Treasure chest with coins" 
+            className="w-28 h-28 object-contain transition-all duration-300 hover:scale-110"
+          />
+        ) : (
+          <div className="flex items-center justify-center w-16 h-16 rounded-full bg-tikroom-50">
+            <Coins className="w-8 h-8 text-tikroom" />
+          </div>
+        )}
       </div>
       
       <h3 className="text-lg font-semibold text-center mb-2">Pack de Coins</h3>

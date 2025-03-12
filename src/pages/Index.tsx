@@ -31,6 +31,12 @@ const Index = () => {
     };
   }, []);
 
+  const treasureImages = [
+    "https://celinaroom.com/wp-content/uploads/2025/03/papiers-peints-pirates-tronc-coffre-plein-de-pieces-de-monnaie-en-or-tresors-eps10-vecteur.jpg-removebg-preview.png",
+    "https://celinaroom.com/wp-content/uploads/2025/03/treasure-chest-illustration-full-of-gold-coins_2609555-removebg-preview.png",
+    "https://celinaroom.com/wp-content/uploads/2025/03/542379d8bbe192df255b59c9de5842f7-removebg-preview.png"
+  ];
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -51,9 +57,9 @@ const Index = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <CoinPackage amount={52000} price={4990} delay={0.1} />
-              <CoinPackage amount={115000} price={9990} popular={true} delay={0.2} />
-              <CoinPackage amount={145000} price={13000} delay={0.3} />
+              <CoinPackage amount={52000} price={4990} delay={0.1} imageUrl={treasureImages[0]} />
+              <CoinPackage amount={115000} price={9990} popular={true} delay={0.2} imageUrl={treasureImages[1]} />
+              <CoinPackage amount={145000} price={13000} delay={0.3} imageUrl={treasureImages[2]} />
             </div>
           </div>
         </section>
