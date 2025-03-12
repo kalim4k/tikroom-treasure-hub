@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -25,7 +24,6 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
   const [selectedCountry, setSelectedCountry] = useState<string>('');
   const { toast } = useToast();
   
-  // Liste des pays
   const countries = [
     'Bénin',
     'Burkina Faso',
@@ -42,26 +40,44 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
     'Autre'
   ].sort();
   
-  // Définir les destinations de paiement selon les pays
-  const paymentDestinations: PaymentDestination[] = [
-    {
-      countries: ['Guinée', 'Niger'],
-      url: 'https://me.fedapay.com/IcZXcvqO'
-    },
-    {
-      countries: ['Gabon', 'Cameroun', 'République démocratique du Congo', 'Congo'],
-      url: 'https://pay.lygosapp.com//link/89f36dec-5395-42bc-b6c9-42aa398cdba3'
-    }
-  ];
+  const paymentDestinations: Record<number, PaymentDestination[]> = {
+    4990: [
+      {
+        countries: ['Guinée', 'Niger'],
+        url: 'https://me.fedapay.com/IcZXcvqO'
+      },
+      {
+        countries: ['Gabon', 'Cameroun', 'République démocratique du Congo', 'Congo'],
+        url: 'https://pay.lygosapp.com//link/89f36dec-5395-42bc-b6c9-42aa398cdba3'
+      }
+    ],
+    9990: [
+      {
+        countries: ['Guinée', 'Niger'],
+        url: 'https://me.fedapay.com/sZK1KmrD'
+      },
+      {
+        countries: ['Gabon', 'Cameroun', 'République démocratique du Congo', 'Congo'],
+        url: 'https://pay.lygosapp.com//link/af08e398-4d9b-4e95-b76d-28dc1b1380cf'
+      }
+    ]
+  };
   
-  // Fonction pour déterminer l'URL de paiement en fonction du pays
   const getPaymentUrl = (country: string): string => {
-    for (const destination of paymentDestinations) {
+    const destinations = paymentDestinations[packagePrice] || [];
+    
+    for (const destination of destinations) {
       if (destination.countries.includes(country)) {
         return destination.url;
       }
     }
-    // Lien par défaut pour les autres pays
+    
+    if (packagePrice === 4990) {
+      return 'https://www.pay.moneyfusion.net/pack-de-52000-coins_1741608496961/';
+    } else if (packagePrice === 9990) {
+      return 'https://www.pay.moneyfusion.net/pack-de-115000-coins_1741767859668/';
+    }
+    
     return 'https://www.pay.moneyfusion.net/pack-de-52000-coins_1741608496961/';
   };
   
