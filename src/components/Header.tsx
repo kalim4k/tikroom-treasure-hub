@@ -41,7 +41,7 @@ const Header = () => {
         
         <div>
           <a 
-            href="https://tikroom.net/login" 
+            href="https://tikroom.net" 
             className="button-shine inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-tikroom hover:bg-tikroom-light rounded-full transition-colors duration-200"
           >
             Se connecter
