@@ -30,9 +30,14 @@ const PaymentMethods = () => {
       alt: 'Logo PayPal'
     },
     {
-      name: 'Carte Bancaire',
-      image: 'https://celinaroom.com/wp-content/uploads/2025/02/credit-card.png',
-      alt: 'Carte Bancaire'
+      name: 'Visa',
+      image: 'https://celinaroom.com/wp-content/uploads/2025/03/payment_method_card_visa-512.webp',
+      alt: 'Logo Visa'
+    },
+    {
+      name: 'Mastercard',
+      image: 'https://celinaroom.com/wp-content/uploads/2025/03/payment-mastercard-icon-1024x615-esu2s5s1.png',
+      alt: 'Logo Mastercard'
     }
   ];
 
@@ -49,7 +54,7 @@ const PaymentMethods = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6">
           {paymentMethods.map((method, index) => (
             <div 
               key={index}
@@ -61,7 +66,7 @@ const PaymentMethods = () => {
                   alt={method.alt} 
                   className={cn(
                     "max-h-16 object-contain transition-transform duration-300 hover:scale-110",
-                    method.name === "Carte Bancaire" ? "max-w-[64px]" : "max-w-[100px]"
+                    (method.name === "Visa" || method.name === "Mastercard") ? "max-w-[64px]" : "max-w-[100px]"
                   )}
                 />
               </div>
