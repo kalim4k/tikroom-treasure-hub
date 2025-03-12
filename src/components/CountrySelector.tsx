@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -60,6 +61,16 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
         countries: ['Gabon', 'Cameroun', 'République démocratique du Congo', 'Congo'],
         url: 'https://pay.lygosapp.com//link/af08e398-4d9b-4e95-b76d-28dc1b1380cf'
       }
+    ],
+    13000: [
+      {
+        countries: ['Guinée', 'Niger'],
+        url: 'https://me.fedapay.com/x-jWazyW'
+      },
+      {
+        countries: ['Gabon', 'Cameroun', 'République démocratique du Congo', 'Congo'],
+        url: 'https://pay.lygosapp.com//link/757bc650-cef9-4c3e-aef2-96937abcb6a7'
+      }
     ]
   };
   
@@ -76,6 +87,8 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
       return 'https://www.pay.moneyfusion.net/pack-de-52000-coins_1741608496961/';
     } else if (packagePrice === 9990) {
       return 'https://www.pay.moneyfusion.net/pack-de-115000-coins_1741767859668/';
+    } else if (packagePrice === 13000) {
+      return 'https://www.pay.moneyfusion.net/pack-de-145000-coins_1741768055474/';
     }
     
     return 'https://www.pay.moneyfusion.net/pack-de-52000-coins_1741608496961/';

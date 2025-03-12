@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Coins } from 'lucide-react';
@@ -23,7 +24,7 @@ const CoinPackage: React.FC<CoinPackageProps> = ({
   const formattedPrice = price.toLocaleString('fr-FR');
   
   const handleBuyClick = () => {
-    if ((amount === 52000 && price === 4990) || (amount === 115000 && price === 9990)) {
+    if ((amount === 52000 && price === 4990) || (amount === 115000 && price === 9990) || (amount === 145000 && price === 13000)) {
       setIsCountrySelectorOpen(true);
     } else {
       window.location.href = 'https://www.pay.moneyfusion.net/pack-de-52000-coins_1741608496961/';
