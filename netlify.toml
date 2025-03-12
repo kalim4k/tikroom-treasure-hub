@@ -1,0 +1,10 @@
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Optional: Configure redirects for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
