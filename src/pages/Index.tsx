@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import CoinPackage from '@/components/CoinPackage';
 import Advantages from '@/components/Advantages';
+import PaymentMethods from '@/components/PaymentMethods';
 import Footer from '@/components/Footer';
 import { Toaster } from "@/components/ui/toaster";
 
@@ -64,6 +65,8 @@ const Index = () => {
             </div>
           </div>
         </section>
+        
+        <PaymentMethods />
         
         <Advantages />
         
